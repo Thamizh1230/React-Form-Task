@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 // import Fetchdata from './Fetchdata.json';
+import Log from './Log.css';
 
 const Login = () => {
     const [usrname, setUserName] = useState("");
@@ -45,9 +46,8 @@ const Login = () => {
     };
   return (
     <div>
-    {/* <Link to={'/home'}>GoToHome</Link>
-    <Link to={'/form'}>GoToForm</Link> */}
-
+        <h2>Login Page</h2>
+    <div className='logmain'>
     <form onSubmit={handlesubmit}>
         <input type='text' onChange={(event)=>{setUserName(event.target.value)}}  placeholder='Enter User_Name'></input><br />
         {/* {usrname === '' && showerror && <p style={{color:"red"}}>User_Name Required!!!</p>} */}
@@ -58,6 +58,9 @@ const Login = () => {
         <input type='submit' />
         {showerror && <p style={{color:"red"}}>{showerror}</p>}
     </form>
+
+    </div>
+
 
     </div>
 

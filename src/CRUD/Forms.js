@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import Form from './Form.css'
 
 const Forms= () => {
     const [params] = useSearchParams();
@@ -120,9 +121,10 @@ const Forms= () => {
     }
  
   return (
-    <div>
-         <form onSubmit={handlesubmit}>
-      <label>Enter User_Name : </label>  <input type="text" onChange={handlename} value={username}/><br />
+    <div><h2>Form Page</h2>
+        <div className='main'>
+        <form onSubmit={handlesubmit}>
+        <label>Enter User_Name : </label>  <input type="text" onChange={handlename} value={username}/><br />
         {username ==="" && formsubmit && <div style={{color:"red"}}>User_Name Required!!!</div> }
         <label>Enter User_Description : </label> <input type='text' onChange={handledes} value={userdes}/> <br />
         {userdes === "" && formsubmit && <div style={{color:"red"}}>User_Des Required!!!</div>}
@@ -132,6 +134,9 @@ const Forms= () => {
     </form>
     <button onClick={()=>gotohome()}>Navigate To Home</button>
     
+
+        </div>
+
     </div>
      )
 }

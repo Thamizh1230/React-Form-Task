@@ -13,7 +13,7 @@ const Formtask = () => {
     }
     const handledes = (e)=>{
         console.log(e.target.value);
-        setuserDes(e.target.value)
+        setuserDes(e.target.value);
 
     }
     const handleiscomplete =(e)=>{
@@ -28,10 +28,11 @@ const Formtask = () => {
         }
         console.log(username, userdes, iscomplete);
         emptyarr();
-        console.log(newarr);
+        
     }
     const emptyarr = ()=>{
-        setnewArr([username, userdes, iscomplete, ...newarr]);
+        setnewArr([...newarr,{name:username, des:userdes, complete:iscomplete}]);
+        console.log(newarr);
 
     }
  
@@ -45,7 +46,7 @@ const Formtask = () => {
        <label>Iscompleted</label> <input type='checkbox'  onChange={handleiscomplete} /> <br />
        <input type='submit' />
     </form>
-        <h1>User_Details</h1>{newarr.map((item, index)=><ul key={index}><li>{item}</li></ul>)}
+        <h2>User_Details</h2>{newarr.map((item, index)=><ul key={index}><li><b>Name:</b>{item.name}{""} <b>Description:</b>{item.des}{""} <b>Iscomplete:</b>{item.complete}</li></ul>)}
     </div>
      )
 }
